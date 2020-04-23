@@ -3,7 +3,7 @@ export class Vec2 {
         this.set(x, y)
     }
     set(x, y){
-        this.x = x;
-        this.y = y;
+        this.x = x
+        this.y = y
     }
 }

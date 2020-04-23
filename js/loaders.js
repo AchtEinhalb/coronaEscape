@@ -1,10 +1,10 @@
 export function loadImage(url){
     return new Promise(resolve => {
-        const image = new Image();
+        const image = new Image()
         image.addEventListener('load', () => {
-            resolve(image);
+            resolve(image)
         })
-        image.src = url;
+        image.src = url
     });
 }
 export function loadLevel(name){

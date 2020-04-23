@@ -15,7 +15,7 @@ Promise.all([
     loadBackgroundSprites(),
     loadLevel('1-1'),
     ]).then(([avatar, backgroundSprites, level]) => {
-    const comp = new Compositor();
+    const comp = new Compositor()
 
     const backgroundLayer = createBackgroundLayer(level.backgrounds, backgroundSprites)
     comp.layers.push(backgroundLayer)
@@ -24,28 +24,28 @@ Promise.all([
     avatar.pos.set(64, 180)
     avatar.vel.set(200, -600)
 
-    const SPACE = 32;
-    const input = new Keyboard();
+    const SPACE = 32
+    const input = new Keyboard()
     input.addMapping(SPACE, keyState => {
         if (keyState) {
-            avatar.jump.start();
+            avatar.jump.start()
         } else {
             avatar.jump.cancel()
         }
         console.log(keyState)
     })
-    input.listenTo(window);
+    input.listenTo(window)
 
     const spriteLayer = createSpriteLayer(avatar);
-    comp.layers.push(spriteLayer);
+    comp.layers.push(spriteLayer)
 
-    const timer = new Timer(1/60);
+    const timer = new Timer(1/60)
 
     timer.update = function update(deltaTime) {
-        avatar.update(deltaTime);
+        avatar.update(deltaTime)
         comp.draw(ctx)
-        avatar.vel.y += gravity * deltaTime;
+        avatar.vel.y += gravity * deltaTime
     }
 
-    timer.start();
+    timer.start()
 });
