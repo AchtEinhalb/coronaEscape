@@ -2,9 +2,9 @@ export default class Compositor {
     constructor(){
         this.layers = []
     }
-    draw(ctx){
+    draw(ctx, frame){
         this.layers.forEach(layers => {
-            layers(ctx)
+            layers(ctx, frame)
         })
     }
 }

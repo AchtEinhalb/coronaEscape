@@ -1,28 +1,57 @@
-function drawBackground(background, ctx, sprites){
-    background.range.forEach(([x1, x2, y1, y2]) => {
-        for (let x = x1; x < x2; x++) {
-            for (let y = y1; y < y2; y++) {
-                sprites.drawTile(background.tile, ctx, x, y)
-            }
-        }
-    });
-}
-
-export function createBackgroundLayer(backgrounds, sprites){
+export function createBackgroundLayer(level, sprites){
     const buffer = document.createElement('canvas')
-    buffer.width = 256
+    buffer.width = 2048
     buffer.height = 240
 
-    backgrounds.forEach(background => {
-        drawBackground(background, buffer.getContext('2d'), sprites)
-    });
+    const ctx = buffer.getContext('2d')
 
-    return function drawBackgroundLayer(ctx){
-        ctx.drawImage(buffer, 0, 0)
+    level.tiles.forEach((tile, x, y) => {
+        sprites.drawTile(tile.name, ctx, x, y)
+    })
+
+    return function drawBackgroundLayer(ctx, frame){
+        ctx.drawImage(buffer, -frame.pos.x, -frame.pos.y)
     }
 }
-export function createSpriteLayer(entity){
+export function createSpriteLayer(entities){
+    const spriteBuffer = document.createElement('canvas')
+    spriteBuffer.width = 64
+    spriteBuffer.height = 64
+
     return function drawSpriteLayer(ctx){
-        entity.draw(ctx)
+        entities.forEach(entity => {
+            entity.draw(ctx)
+        })
+        
+    }
+}
+export function createCollisionLayer(level){
+    const resolvedTiles = []
+
+    const tileResolver = level.tileCollider.tiles
+    const tileSize = tileResolver.tileSize
+
+    const getByIndexOriginal = tileResolver.getByIndex
+    tileResolver.getByIndex = function getByIndexFake(x,y){
+        resolvedTiles.push({x,y})
+        
+        return getByIndexOriginal.call(tileResolver, x, y)
+    }
+    return function drawCollision(ctx){
+        ctx.strokeStyle = 'blue'
+        resolvedTiles.forEach(({x, y}) => {
+            ctx.beginPath()
+            ctx.rect(x*tileSize, y*tileSize, tileSize, tileSize)
+            ctx.stroke()
+        })
+
+        ctx.strokeStyle = 'red'
+        level.entities.forEach(entity => {
+            ctx.beginPath()
+            ctx.rect(entity.pos.x, entity.pos.y, entity.size.x, entity.size.y)
+            ctx.stroke()
+        })
+
+        resolvedTiles.length = 0
     }
 }

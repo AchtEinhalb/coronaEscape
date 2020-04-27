@@ -1,51 +1,44 @@
-import Compositor from './compositor.js'
+import Frame from './frame.js'
 import Timer from './timer.js'
 import {loadLevel} from './loaders.js'
 import {createAvatar} from './entities.js'
-import {loadBackgroundSprites} from './sprites.js'
-import {createBackgroundLayer, createSpriteLayer} from './layers.js'
-
-import Keyboard from './keyboardState.js'
+import {createCollisionLayer} from './layers.js'
+import {setupKeyboard} from './input.js'
 
 const canvas = document.querySelector('#screen')
 const ctx = canvas.getContext('2d')
 
 Promise.all([
     createAvatar(),
-    loadBackgroundSprites(),
     loadLevel('1-1'),
-    ]).then(([avatar, backgroundSprites, level]) => {
-    const comp = new Compositor()
+    ]).then(([avatar, level]) => {
+        const frame = new Frame()
+        window.frame = frame
 
-    const backgroundLayer = createBackgroundLayer(level.backgrounds, backgroundSprites)
-    comp.layers.push(backgroundLayer)
+        avatar.pos.set(64, 64)
 
-    const gravity = 2000
-    avatar.pos.set(64, 180)
-    avatar.vel.set(200, -600)
+        // level.comp.layers.push(createCollisionLayer(level))
 
-    const SPACE = 32
-    const input = new Keyboard()
-    input.addMapping(SPACE, keyState => {
-        if (keyState) {
-            avatar.jump.start()
-        } else {
-            avatar.jump.cancel()
+        level.entities.add(avatar)
+
+        const input = setupKeyboard(avatar)
+
+        input.listenTo(window);
+
+        // ['mousedown', 'mousemove'].forEach(eventName =>{
+        //     canvas.addEventListener(eventName, event =>{
+        //         if(event.buttons === 1){
+        //             avatar.vel.set(0,0)
+        //             avatar.pos.set(event.offsetX, event.offsetY)
+        //         }
+        //     })
+        // })
+
+        const timer = new Timer(1/60)
+
+        timer.update = function update(deltaTime) {
+            level.update(deltaTime)
+            level.comp.draw(ctx, frame)
         }
-        console.log(keyState)
-    })
-    input.listenTo(window)
-
-    const spriteLayer = createSpriteLayer(avatar);
-    comp.layers.push(spriteLayer)
-
-    const timer = new Timer(1/60)
-
-    timer.update = function update(deltaTime) {
-        avatar.update(deltaTime)
-        comp.draw(ctx)
-        avatar.vel.y += gravity * deltaTime
-    }
-
-    timer.start()
+        timer.start()
 });
