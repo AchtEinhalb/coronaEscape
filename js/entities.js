@@ -14,7 +14,7 @@ export function createAvatar() {
         // avatar.addTrait(new Velocity())
         
         avatar.draw = function drawAvatar(ctx){
-            sprite.draw('idle', ctx, this.pos.x, this.pos.y)
+            sprite.draw('idle', ctx, 0, 0)
         }
         return avatar
     })

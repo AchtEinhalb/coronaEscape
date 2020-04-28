@@ -4,6 +4,7 @@ import {loadLevel} from './loaders.js'
 import {createAvatar} from './entities.js'
 import {createCollisionLayer} from './layers.js'
 import {setupKeyboard} from './input.js'
+import {mouseControl} from './debug.js'
 
 const canvas = document.querySelector('#screen')
 const ctx = canvas.getContext('2d')
@@ -17,22 +18,14 @@ Promise.all([
 
         avatar.pos.set(64, 64)
 
-        // level.comp.layers.push(createCollisionLayer(level))
+        level.comp.layers.push(createCollisionLayer(level))
 
         level.entities.add(avatar)
 
         const input = setupKeyboard(avatar)
 
         input.listenTo(window);
-
-        // ['mousedown', 'mousemove'].forEach(eventName =>{
-        //     canvas.addEventListener(eventName, event =>{
-        //         if(event.buttons === 1){
-        //             avatar.vel.set(0,0)
-        //             avatar.pos.set(event.offsetX, event.offsetY)
-        //         }
-        //     })
-        // })
+        mouseControl(canvas, avatar, frame)
 
         const timer = new Timer(1/60)
 
