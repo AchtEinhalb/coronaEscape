@@ -2,7 +2,7 @@ import Frame from './frame.js'
 import Timer from './timer.js'
 import {loadLevel} from './loaders.js'
 import {createAvatar} from './entities.js'
-import {createCollisionLayer} from './layers.js'
+import {createCollisionLayer, createFrameLayer} from './layers.js'
 import {setupKeyboard} from './input.js'
 import {mouseControl} from './debug.js'
 
@@ -18,7 +18,7 @@ Promise.all([
 
         avatar.pos.set(64, 64)
 
-        level.comp.layers.push(createCollisionLayer(level))
+        level.comp.layers.push(createCollisionLayer(level), createFrameLayer(frame))
 
         level.entities.add(avatar)
 

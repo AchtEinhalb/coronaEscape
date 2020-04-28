@@ -1,20 +1,41 @@
 export function createBackgroundLayer(level, sprites){
+    const tiles = level.tiles
+    const resolver = level.tileCollider.tiles
+
     const buffer = document.createElement('canvas')
-    buffer.width = 2048
+    buffer.width = 256 + 16
     buffer.height = 240
 
     const ctx = buffer.getContext('2d')
     const bg = document.querySelector('#bg')
-    bg.width = 2000
-    bg.height = 240
 
-    level.tiles.forEach((tile, x, y) => {
-        sprites.drawTile(tile.name, ctx, x, y)
-    })
+    let startIndex, endIndex
+    function proxyDraw(drawFrom, drawTo){
+        if(drawFrom === startIndex && drawTo === endIndex){
+            return
+        }
+
+        startIndex = drawFrom
+        endIndex = drawTo
+
+        ctx.clearRect(0, 0, buffer.width, buffer.height)
+        for(let x= startIndex; x<= endIndex; ++x){
+            const col = tiles.grid[x]
+            if(col){
+                col.forEach((tile, y) => {
+                    sprites.drawTile(tile.name, ctx, x - startIndex, y)
+                })
+            }
+        }
+    }
 
     return function drawBackgroundLayer(ctx, frame){
-        ctx.drawImage(bg, 0, 0, 720, buffer.height)
-        ctx.drawImage(buffer, -frame.pos.x, -frame.pos.y)
+        const drawWidth = resolver.toIndex(frame.size.x)
+        const drawFrom = resolver.toIndex(frame.pos.x)
+        const drawTo = drawFrom + drawWidth
+        proxyDraw(drawFrom, drawTo)
+        ctx.drawImage(bg, -frame.pos.x, -frame.pos.y, 720, buffer.height)
+        ctx.drawImage(buffer, -frame.pos.x % 16, -frame.pos.y)
     }
 }
 export function createSpriteLayer(entities, width = 64, height = 64){
@@ -27,7 +48,6 @@ export function createSpriteLayer(entities, width = 64, height = 64){
         entities.forEach(entity => {
             spriteBufferContext.clearRect(0, 0, width, height)
             entity.draw(spriteBufferContext)
-
             ctx.drawImage(spriteBuffer, entity.pos.x - frame.pos.x, entity.pos.y - frame.pos.y)
         })
         
@@ -61,5 +81,13 @@ export function createCollisionLayer(level){
         })
 
         resolvedTiles.length = 0
+    }
+}
+export function createFrameLayer(frameToDraw){
+    return function drawFrameRect(ctx, fromFrame){
+        ctx.strokeStyle = 'purple'
+        ctx.beginPath()
+        ctx.rect(frameToDraw.pos.x-fromFrame.pos.x, frameToDraw.pos.y-fromFrame.pos.y, frameToDraw.size.x, frameToDraw.size.y)
+        ctx.stroke()
     }
 }
