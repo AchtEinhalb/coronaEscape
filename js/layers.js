@@ -11,9 +11,9 @@ export function createBackgroundLayer(level, sprites){
 
     let startIndex, endIndex
     function proxyDraw(drawFrom, drawTo){
-        if(drawFrom === startIndex && drawTo === endIndex){
-            return
-        }
+        // if(drawFrom === startIndex && drawTo === endIndex){
+        //     return
+        // }
 
         startIndex = drawFrom
         endIndex = drawTo
@@ -23,7 +23,11 @@ export function createBackgroundLayer(level, sprites){
             const col = tiles.grid[x]
             if(col){
                 col.forEach((tile, y) => {
-                    sprites.drawTile(tile.name, ctx, x - startIndex, y)
+                    if(sprites.animations.has(tile.name)){
+                        sprites.drawAnimation(tile.name, ctx, x - startIndex, y, level.totalTime)
+                    } else {
+                        sprites.drawTile(tile.name, ctx, x - startIndex, y)
+                    }
                 })
             }
         }
@@ -66,19 +70,19 @@ export function createCollisionLayer(level){
         return getByIndexOriginal.call(tileResolver, x, y)
     }
     return function drawCollision(ctx, frame){
-        ctx.strokeStyle = 'blue'
-        resolvedTiles.forEach(({x, y}) => {
-            ctx.beginPath()
-            ctx.rect(x*tileSize-frame.pos.x, y*tileSize-frame.pos.y, tileSize, tileSize)
-            ctx.stroke()
-        })
+        // ctx.strokeStyle = 'blue'
+        // resolvedTiles.forEach(({x, y}) => {
+        //     ctx.beginPath()
+        //     ctx.rect(x*tileSize-frame.pos.x, y*tileSize-frame.pos.y, tileSize, tileSize)
+        //     ctx.stroke()
+        // })
 
-        ctx.strokeStyle = 'red'
-        level.entities.forEach(entity => {
-            ctx.beginPath()
-            ctx.rect(entity.pos.x-frame.pos.x, entity.pos.y-frame.pos.y, entity.size.x, entity.size.y)
-            ctx.stroke()
-        })
+        // ctx.strokeStyle = 'red'
+        // level.entities.forEach(entity => {
+        //     ctx.beginPath()
+        //     ctx.rect(entity.pos.x-frame.pos.x, entity.pos.y-frame.pos.y, entity.size.x, entity.size.y)
+        //     ctx.stroke()
+        // })
 
         resolvedTiles.length = 0
     }

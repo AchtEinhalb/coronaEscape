@@ -4,6 +4,11 @@ export class Trait{
     constructor(name){
         this.NAME = name
     }
+
+    obstruct(){
+        
+    }
+
     update(){
         console.warn('UNHANDLED UPDATE IN TRAIT')
     }
@@ -21,6 +26,13 @@ export default class Entity {
         this.traits.push(trait)
         this[trait.NAME] = trait
     }
+
+    obstruct(side){
+        this.traits.forEach(trait => {
+            trait.obstruct(this, side)
+        })
+    }
+
     update(deltaTime){
         this.traits.forEach(trait => {
             trait.update(this, deltaTime)

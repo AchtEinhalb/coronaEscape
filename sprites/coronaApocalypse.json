@@ -9,20 +9,142 @@
             "index": [0, 0]
         },
         {
-            "name": "sky",
-            "index": [3, 23]
+            "name": "ground0",
+            "index": [0, 0]
         },
         {
-            "name": "mold",
+            "name": "ground1",
             "index": [0, 1]
+        },
+        {
+            "name": "ground2",
+            "index": [0, 2]
+        },
+        {
+            "name": "ground3",
+            "index": [0, 3]
+        },
+        {
+            "name": "ground4",
+            "index": [0, 4]
+        },
+        {
+            "name": "ground5",
+            "index": [0, 5]
+        },
+        {
+            "name": "ground6",
+            "index": [0, 6]
+        },
+        {
+            "name": "sky",
+            "index": [3, 23]
         },
         {
             "name": "break",
             "index": [1, 0]
         },
         {
+            "name": "break0",
+            "index": [1, 0]
+        },
+        {
+            "name": "break1",
+            "index": [1, 1]
+        },
+        {
+            "name": "break2",
+            "index": [1, 2]
+        },
+        {
+            "name": "break3",
+            "index": [1, 3]
+        },
+        {
+            "name": "break4",
+            "index": [1, 4]
+        },
+        {
+            "name": "break5",
+            "index": [1, 5]
+        },
+        {
+            "name": "break6",
+            "index": [1, 6]
+        },
+        {
             "name": "chance",
-            "index": [24, 0]
+            "index": [2, 0]
+        },
+        {
+            "name": "chance0",
+            "index": [2, 0]
+        },
+        {
+            "name": "chance1",
+            "index": [2, 1]
+        },
+        {
+            "name": "chance2",
+            "index": [2, 2]
+        },
+        {
+            "name": "chance3",
+            "index": [2, 3]
+        },
+        {
+            "name": "chance4",
+            "index": [2, 4]
+        },
+        {
+            "name": "chance5",
+            "index": [2, 5]
+        },
+        {
+            "name": "chance6",
+            "index": [2, 6]
+        }
+    ],
+
+    "animations": [
+        {
+            "name": "ground",
+            "frameLength": 2,
+            "frames": [
+                "ground0",
+                "ground1",
+                "ground2",
+                "ground3",
+                "ground4",
+                "ground5",
+                "ground6"
+            ]
+        },
+        {
+            "name": "break",
+            "frameLength": 0.12,
+            "frames": [
+                "break0",
+                "break1",
+                "break2",
+                "break3",
+                "break4",
+                "break5",
+                "break6"
+            ]
+        },
+        {
+            "name": "chance",
+            "frameLength": 0.13,
+            "frames": [
+                "chance0",
+                "chance1",
+                "chance2",
+                "chance3",
+                "chance4",
+                "chance5",
+                "chance6"
+            ]
         }
     ]
 }
