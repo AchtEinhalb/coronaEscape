@@ -1,0 +1,72 @@
+{
+    "imageURL": "/img/characters.png",
+    "frames": [
+        {
+            "name": "float1",
+            "rect": [277, 187, 16, 16]
+        },
+        {
+            "name": "float2",
+            "rect": [296, 187, 16, 16]
+        },
+        {
+            "name": "float3",
+            "rect": [315, 187, 16, 16]
+        },
+        {
+            "name": "float4",
+            "rect": [334, 187, 16, 16]
+        },
+        {
+            "name": "float5",
+            "rect": [353, 187, 16, 16]
+        },
+        {
+            "name": "float6",
+            "rect": [372, 187, 16, 16]
+        },
+        {
+            "name": "float7",
+            "rect": [391, 187, 16, 16]
+        },
+        {
+            "name": "float8",
+            "rect": [410, 187, 16, 16]
+        },
+        {
+            "name": "float9",
+            "rect": [429, 187, 16, 16]
+        },
+        {
+            "name": "float10",
+            "rect": [448, 187, 16, 16]
+        }
+    ],
+    "animations": [
+        {
+            "name": "float",
+            "frameLength": 0.1,
+            "frames": [
+                "float1",
+                "float2",
+                "float3",
+                "float4",
+                "float5",
+                "float6",
+                "float7",
+                "float8",
+                "float9",
+                "float10",
+                "float9",
+                "float8",
+                "float7",
+                "float6",
+                "float5",
+                "float4",
+                "float3",
+                "float2",
+                "float1"
+            ]
+        }
+    ]
+}

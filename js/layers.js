@@ -1,6 +1,8 @@
-export function createBackgroundLayer(level, sprites){
-    const tiles = level.tiles
-    const resolver = level.tileCollider.tiles
+import TileResolver from "./tileResolver.js"
+
+export function createBackgroundLayer(level, tiles, sprites){
+    // const tiles = level.tiles
+    const resolver = new TileResolver(tiles)
 
     const buffer = document.createElement('canvas')
     buffer.width = 256 + 16
@@ -8,17 +10,11 @@ export function createBackgroundLayer(level, sprites){
 
     const ctx = buffer.getContext('2d')
     const bg = document.querySelector('#bg')
-
-    let startIndex, endIndex
-    function proxyDraw(drawFrom, drawTo){
-        // if(drawFrom === startIndex && drawTo === endIndex){
-        //     return
-        // }
-
-        startIndex = drawFrom
-        endIndex = drawTo
-
+    
+    function proxyDraw(startIndex, endIndex){
+        
         ctx.clearRect(0, 0, buffer.width, buffer.height)
+        
         for(let x= startIndex; x<= endIndex; ++x){
             const col = tiles.grid[x]
             if(col){
@@ -26,6 +22,7 @@ export function createBackgroundLayer(level, sprites){
                     if(sprites.animations.has(tile.name)){
                         sprites.drawAnimation(tile.name, ctx, x - startIndex, y, level.totalTime)
                     } else {
+                        
                         sprites.drawTile(tile.name, ctx, x - startIndex, y)
                     }
                 })
@@ -37,8 +34,8 @@ export function createBackgroundLayer(level, sprites){
         const drawWidth = resolver.toIndex(frame.size.x)
         const drawFrom = resolver.toIndex(frame.pos.x)
         const drawTo = drawFrom + drawWidth
+        
         proxyDraw(drawFrom, drawTo)
-        ctx.drawImage(bg, -frame.pos.x, -frame.pos.y, 720, buffer.height)
         ctx.drawImage(buffer, -frame.pos.x % 16, -frame.pos.y)
     }
 }

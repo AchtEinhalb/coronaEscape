@@ -37,6 +37,10 @@
             "index": [0, 6]
         },
         {
+            "name": "ground7",
+            "index": [0, 7]
+        },
+        {
             "name": "sky",
             "index": [3, 23]
         },
@@ -73,43 +77,431 @@
             "index": [1, 6]
         },
         {
-            "name": "chance",
+            "name": "spawn",
             "index": [2, 0]
         },
         {
-            "name": "chance0",
+            "name": "spawn0",
             "index": [2, 0]
         },
         {
-            "name": "chance1",
+            "name": "spawn1",
             "index": [2, 1]
         },
         {
-            "name": "chance2",
+            "name": "spawn2",
             "index": [2, 2]
         },
         {
-            "name": "chance3",
+            "name": "spawn3",
             "index": [2, 3]
         },
         {
-            "name": "chance4",
+            "name": "spawn4",
             "index": [2, 4]
         },
         {
-            "name": "chance5",
+            "name": "spawn5",
             "index": [2, 5]
         },
         {
-            "name": "chance6",
+            "name": "spawn6",
             "index": [2, 6]
+        },
+        {
+            "name": "grassPatch",
+            "index": [1, 7]
+        },
+        {
+            "name": "soil",
+            "index": [2, 7]
+        },
+        {
+            "name": "bigGrassPatch0",
+            "index": [3, 7]
+        },
+        {
+            "name": "bigGrassPatch1",
+            "index": [4, 7]
+        },
+        {
+            "name": "bigGrassPatch2",
+            "index": [5, 7]
+        },
+        {
+            "name": "car-left-top",
+            "index": [0, 8]
+        },
+        {
+            "name": "car-left-bottom",
+            "index": [0, 9]
+        },
+        {
+            "name": "car-left-mid-top",
+            "index": [1, 8]
+        },
+        {
+            "name": "car-left-mid-bottom",
+            "index": [1, 9]
+        },
+        {
+            "name": "car-mid-top",
+            "index": [2, 8]
+        },
+        {
+            "name": "car-mid-bottom",
+            "index": [2, 9]
+        },
+        {
+            "name": "car-right-mid-top",
+            "index": [3, 8]
+        },
+        {
+            "name": "car-right-mid-bottom",
+            "index": [3, 9]
+        },
+        {
+            "name": "car-right-top",
+            "index": [4, 8]
+        },
+        {
+            "name": "car-right-bottom",
+            "index": [4, 9]
+        },
+        {
+            "name": "cloud-left-top",
+            "index": [0, 10]
+        },
+        {
+            "name": "cloud-left-bottom",
+            "index": [0, 11]
+        },
+        {
+            "name": "cloud-left-mid-top",
+            "index": [1, 10]
+        },
+        {
+            "name": "cloud-left-mid-bottom",
+            "index": [1, 11]
+        },
+        {
+            "name": "cloud-mid-top",
+            "index": [2, 10]
+        },
+        {
+            "name": "cloud-mid-bottom",
+            "index": [2, 11]
+        },
+        {
+            "name": "cloud-right-mid-top",
+            "index": [3, 10]
+        },
+        {
+            "name": "cloud-right-mid-bottom",
+            "index": [3, 11]
+        },
+        {
+            "name": "cloud-right-top",
+            "index": [4, 10]
+        },
+        {
+            "name": "cloud-right-bottom",
+            "index": [4, 11]
+        },
+        {
+            "name": "fire-top-left0",
+            "index": [0, 12]
+        },
+        {
+            "name": "fire-top-left1",
+            "index": [2, 12]
+        },
+        {
+            "name": "fire-top-left2",
+            "index": [4, 12]
+        },
+        {
+            "name": "fire-top-left3",
+            "index": [6, 12]
+        },
+        {
+            "name": "fire-top-left4",
+            "index": [8, 12]
+        },
+        {
+            "name": "fire-top-left5",
+            "index": [10, 12]
+        },
+        {
+            "name": "fire-top-left6",
+            "index": [12, 12]
+        },
+        {
+            "name": "fire-top-left7",
+            "index": [14, 12]
+        },
+        {
+            "name": "fire-top-left8",
+            "index": [16, 12]
+        },
+        {
+            "name": "fire-top-left9",
+            "index": [18, 12]
+        },
+        {
+            "name": "fire-top-right0",
+            "index": [1, 12]
+        },
+        {
+            "name": "fire-top-right1",
+            "index": [3, 12]
+        },
+        {
+            "name": "fire-top-right2",
+            "index": [5, 12]
+        },
+        {
+            "name": "fire-top-right3",
+            "index": [7, 12]
+        },
+        {
+            "name": "fire-top-right4",
+            "index": [9, 12]
+        },
+        {
+            "name": "fire-top-right5",
+            "index": [11, 12]
+        },
+        {
+            "name": "fire-top-right6",
+            "index": [13, 12]
+        },
+        {
+            "name": "fire-top-right7",
+            "index": [15, 12]
+        },
+        {
+            "name": "fire-top-right8",
+            "index": [17, 12]
+        },
+        {
+            "name": "fire-top-right9",
+            "index": [19, 12]
+        },
+        {
+            "name": "fire-bottom-left0",
+            "index": [0, 13]
+        },
+        {
+            "name": "fire-bottom-left1",
+            "index": [2, 13]
+        },
+        {
+            "name": "fire-bottom-left2",
+            "index": [4, 13]
+        },
+        {
+            "name": "fire-bottom-left3",
+            "index": [6, 13]
+        },
+        {
+            "name": "fire-bottom-left4",
+            "index": [8, 13]
+        },
+        {
+            "name": "fire-bottom-left5",
+            "index": [10, 13]
+        },
+        {
+            "name": "fire-bottom-left6",
+            "index": [12, 13]
+        },
+        {
+            "name": "fire-bottom-left7",
+            "index": [14, 13]
+        },
+        {
+            "name": "fire-bottom-left8",
+            "index": [16, 13]
+        },
+        {
+            "name": "fire-bottom-left9",
+            "index": [18, 13]
+        },
+        {
+            "name": "fire-bottom-right0",
+            "index": [1, 13]
+        },
+        {
+            "name": "fire-bottom-right1",
+            "index": [3, 13]
+        },
+        {
+            "name": "fire-bottom-right2",
+            "index": [5, 13]
+        },
+        {
+            "name": "fire-bottom-right3",
+            "index": [7, 13]
+        },
+        {
+            "name": "fire-bottom-right4",
+            "index": [9, 13]
+        },
+        {
+            "name": "fire-bottom-right5",
+            "index": [11, 13]
+        },
+        {
+            "name": "fire-bottom-right6",
+            "index": [13, 13]
+        },
+        {
+            "name": "fire-bottom-right7",
+            "index": [15, 13]
+        },
+        {
+            "name": "fire-bottom-right8",
+            "index": [17, 13]
+        },
+        {
+            "name": "fire-bottom-right9",
+            "index": [19, 13]
         }
     ],
 
     "animations": [
         {
+            "name": "fire-top-left",
+            "frameLength": 0.15,
+            "frames": [
+                "fire-top-left0",
+                "fire-top-left1",
+                "fire-top-left2",
+                "fire-top-left3",
+                "fire-top-left4",
+                "fire-top-left5",
+                "fire-top-left6",
+                "fire-top-left7",
+                "fire-top-left8",
+                "fire-top-left9"
+            ]
+        },
+        {
+            "name": "fire-top-right",
+            "frameLength": 0.15,
+            "frames": [
+                "fire-top-right0",
+                "fire-top-right1",
+                "fire-top-right2",
+                "fire-top-right3",
+                "fire-top-right4",
+                "fire-top-right5",
+                "fire-top-right6",
+                "fire-top-right7",
+                "fire-top-right8",
+                "fire-top-right9"
+            ]
+        },
+        {
+            "name": "fire-bottom-left",
+            "frameLength": 0.15,
+            "frames": [
+                "fire-bottom-left0",
+                "fire-bottom-left1",
+                "fire-bottom-left2",
+                "fire-bottom-left3",
+                "fire-bottom-left4",
+                "fire-bottom-left5",
+                "fire-bottom-left6",
+                "fire-bottom-left7",
+                "fire-bottom-left8",
+                "fire-bottom-left9"
+            ]
+        },
+        {
+            "name": "fire-bottom-right",
+            "frameLength": 0.15,
+            "frames": [
+                "fire-bottom-right0",
+                "fire-bottom-right1",
+                "fire-bottom-right2",
+                "fire-bottom-right3",
+                "fire-bottom-right4",
+                "fire-bottom-right5",
+                "fire-bottom-right6",
+                "fire-bottom-right7",
+                "fire-bottom-right8",
+                "fire-bottom-right9"
+            ]
+        },
+        {
+            "name": "rev-fire-top-left",
+            "frameLength": 0.13,
+            "frames": [
+                "fire-top-left9",
+                "fire-top-left8",
+                "fire-top-left7",
+                "fire-top-left6",
+                "fire-top-left5",
+                "fire-top-left4",
+                "fire-top-left3",
+                "fire-top-left2",
+                "fire-top-left1",
+                "fire-top-left0"
+            ]
+        },
+        {
+            "name": "rev-fire-top-right",
+            "frameLength": 0.13,
+            "frames": [
+                "fire-top-right9",
+                "fire-top-right8",
+                "fire-top-right7",
+                "fire-top-right6",
+                "fire-top-right5",
+                "fire-top-right4",
+                "fire-top-right3",
+                "fire-top-right2",
+                "fire-top-right1",
+                "fire-top-right0"
+            ]
+        },
+        {
+            "name": "rev-fire-bottom-left",
+            "frameLength": 0.13,
+            "frames": [
+                "fire-bottom-left9",
+                "fire-bottom-left8",
+                "fire-bottom-left7",
+                "fire-bottom-left6",
+                "fire-bottom-left5",
+                "fire-bottom-left4",
+                "fire-bottom-left3",
+                "fire-bottom-left2",
+                "fire-bottom-left1",
+                "fire-bottom-left0"
+            ]
+        },
+        {
+            "name": "rev-fire-bottom-right",
+            "frameLength": 0.13,
+            "frames": [
+                "fire-bottom-right9",
+                "fire-bottom-right8",
+                "fire-bottom-right7",
+                "fire-bottom-right6",
+                "fire-bottom-right5",
+                "fire-bottom-right4",
+                "fire-bottom-right3",
+                "fire-bottom-right2",
+                "fire-bottom-right1",
+                "fire-bottom-right0"
+            ]
+        },
+        {
             "name": "ground",
-            "frameLength": 2,
+            "frameLength": 0.05,
             "frames": [
                 "ground0",
                 "ground1",
@@ -117,7 +509,15 @@
                 "ground3",
                 "ground4",
                 "ground5",
-                "ground6"
+                "ground6",
+                "ground7",
+                "ground6",
+                "ground5",
+                "ground4",
+                "ground3",
+                "ground2",
+                "ground1",
+                "ground0"
             ]
         },
         {
@@ -134,16 +534,16 @@
             ]
         },
         {
-            "name": "chance",
+            "name": "spawn",
             "frameLength": 0.13,
             "frames": [
-                "chance0",
-                "chance1",
-                "chance2",
-                "chance3",
-                "chance4",
-                "chance5",
-                "chance6"
+                "spawn0",
+                "spawn1",
+                "spawn2",
+                "spawn3",
+                "spawn4",
+                "spawn5",
+                "spawn6"
             ]
         }
     ]
